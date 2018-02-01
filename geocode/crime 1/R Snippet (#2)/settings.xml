@@ -6,7 +6,7 @@
 <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
 </config>
 <config key="model">
-<entry key="script" type="xstring" value="knime.out &lt;- knime.in"/>
+<entry key="script" type="xstring" value="df &lt;- knime.in%%00010#Geocoding a csv column of &quot;addresses&quot; in R%%00010%%00010library(ggmap)%%00010library(ggplot2)%%00010%%00010# loop through the addresses to get the longtitude&amp;latutude of each address%%00010# add it to the syr_police data frame with new columns of seperate lat and long %%00010for (i in 1:nrow (df))%%00010{%%00010  result &lt;- geocode(as.character(df$Crime_address[2473:5000],%%00010                    output = &quot;latlon&quot;, source = &quot;google&quot;))%%00010  df$Crime_long[i] &lt;- as.numeric(result[1])%%00010  df$Crime_lat[i] &lt;- as.numeric(result[2])%%00010}%%00010%%00010knime.out &lt;- df"/>
 <entry key="templateUUID" type="xstring" isnull="true" value=""/>
 <entry key="version" type="xstring" value="version 1.x"/>
 <entry key="Output non numbers (NaN, Inf, -Inf) as missing cells" type="xboolean" value="false"/>
